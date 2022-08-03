@@ -1,7 +1,7 @@
 export function setUserCookie(token) {
   var now = new Date();
   var time = now.getTime();
-  var expireTime = time + 50000;
+  var expireTime = time + 30000;
   now.setTime(expireTime);
   document.cookie =
     "token="+token+";expires=" + now.toUTCString();

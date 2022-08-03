@@ -7,7 +7,7 @@ import { useAuth } from "../../../common/hooks";
 export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const { isLoggedIn, onLogin } = useAuth();
+  const { isLoggin, onLogin } = useAuth();
 
   useEffect(() => {
     setPassword('');

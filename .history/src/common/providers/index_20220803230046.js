@@ -36,13 +36,13 @@ export const AuthContext = React.createContext({
 });
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(null);
+  const [isLoggedIn, setIsLoggin] = React.useState(null);
   const { addError } = useApiError();
 
   const onLogin = async (user, pass) => {
     try {
       await fakeAuth(user, pass);
-      setIsLoggedIn(true);
+      setIsLoggin(true);
       setUserCookie("666666");
     } catch (error) {
       addError(error.message);
@@ -50,12 +50,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const onLogout = () => {
-    setIsLoggedIn(null);
+    setIsLoggin(null);
     deleteUserCookie("666666");
   };
 
   const contextValue = {
-    isLoggedIn,
+    isLoggin,
     onLogin: useCallback((user, pass) => onLogin(user, pass), []),
     onLogout: useCallback(() => onLogout(), []),
   };
