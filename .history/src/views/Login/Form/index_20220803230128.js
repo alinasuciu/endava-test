@@ -5,8 +5,8 @@ import Button from "../../../components/Button";
 import { useAuth } from "../../../common/hooks";
 
 export default function LoginForm() {
-  const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const { isLoggedIn, onLogin } = useAuth();
 
   useEffect(() => {

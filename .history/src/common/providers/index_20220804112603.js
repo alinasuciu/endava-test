@@ -1,10 +1,6 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { fakeAuth } from "../../service";
-import {
-  setUserCookie,
-  deleteUserCookie,
-  checkIfCookieExists,
-} from "../../utils";
+import { setUserCookie, deleteUserCookie, checkIfCookieExists} from "../../utils";
 import { useApiError } from "../hooks";
 
 export const ApiErrorContext = React.createContext({
@@ -42,13 +38,11 @@ export const AuthContext = React.createContext({
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = React.useState(null);
   const { addError } = useApiError();
-  const isToken = checkIfCookieExists("token");
 
-  useEffect(() => {
-    if (isToken) {
-      setIsLoggedIn(true);
-    }
-  }, [isToken]);
+  if(checkIfCookieExists()) {
+    setIsLoggedIn(true);
+    return
+  }
 
   const onLogin = async (user, pass) => {
     try {

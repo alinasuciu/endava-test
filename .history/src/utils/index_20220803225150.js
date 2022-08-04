@@ -7,10 +7,6 @@ export function setUserCookie(token) {
     "token="+token+";expires=" + now.toUTCString();
 }
 
-export function deleteUserCookie() {
+export function deleteUserCookie(token) {
     document.cookie = "token=;expires=Thu, 18 Dec 2013 12:00:00 UTC";
-}
-
-export function checkIfCookieExists(name) {
-  return document.cookie.indexOf(name) > -1 
 }

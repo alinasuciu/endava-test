@@ -11,6 +11,6 @@ export function deleteUserCookie() {
     document.cookie = "token=;expires=Thu, 18 Dec 2013 12:00:00 UTC";
 }
 
-export function checkIfCookieExists(name) {
-  return document.cookie.indexOf(name) > -1 
+export function checkIfCookieExists(cookie) {
+ return document.cookie.indexOf(`${cookie}=`);
 }

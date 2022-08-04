@@ -12,5 +12,5 @@ export function deleteUserCookie() {
 }
 
 export function checkIfCookieExists(name) {
-  return document.cookie.indexOf(name) > -1 
+  return document.cookie.indexOf(name) === -1 
 }
